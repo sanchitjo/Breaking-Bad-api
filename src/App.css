@@ -21,6 +21,12 @@
   margin-left: 50px;
 }
 
+.loading-bar {
+  margin-top: 50px;
+  height: 50px;
+  width: 50px;
+}
+
 .searchbar {
   margin-top: 5px;
   font-size: 20px;
@@ -29,9 +35,11 @@
   color: white;
   padding: 10px;
   border-radius: 5px;
+  outline: none;
+  border: 1px solid #0d6d38;
 }
 
-.sraech-button {
+/* .sraech-button {
   background-color: #0d6d38;
   color: white;
   font-size: 20px;
@@ -39,7 +47,12 @@
   border: none;
   border-radius: 5px;
   margin-left: 5px;
-} 
+}  */
+
+.author-quote {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
 
 .ww-img {
   height: 700px;
@@ -57,23 +70,99 @@
 }
 
 .cards {
-  
+  background-color: black;
   padding: 50px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 2fr);
   grid-auto-rows: 300px;
   gap: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
 
 .cards img {
-  width: 98%;
+  width: 80%;
   height: 300px;
 }
 
-.card h3 {
-  margin: 0;
+.cards img:hover {
+  cursor: pointer;
+}
+
+.character-name {
+  color: whitesmoke;
+}
+
+.Character-id {
+  background-color: black;
   color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  /* margin: 30px; */
+}
+.img-div-id{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 25px;
+}
+.img-id {
+  /* margin-left: 30px; */
+  height: 400px;
+  width: 300px;
+}
+
+.character-details {
+  margin: 10px;
+}
+
+.loading-gif {
+  display: block;
+  height: 200px;
+  width: 400px;
+  margin-left: 460px;
+  margin-top: 250px;
+}
+
+@media only screen and (max-width:450px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 300px;
+  }
+}
+
+@media only screen and (max-width:600px) and (min-width:451px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 300px;
+  }
+}
+
+@media only screen and (max-width:900px) and (min-width:601px) {
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 300px;
+  }
 }
