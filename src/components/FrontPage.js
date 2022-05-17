@@ -3,7 +3,7 @@ import axios from 'axios'
 import Walter from '../images/Walter.png'
 import logo from '../images/logo.svg'
 import { Link } from 'react-router-dom'
-import circle from '../images/circle.gif'
+import loadingCircle from '../images/circle.gif'
 
 
 const FrontPage = () => {
@@ -18,19 +18,18 @@ const FrontPage = () => {
     const fetchCharacters = async () => {
       const result = await axios(`https://www.breakingbadapi.com/api/characters?name=${search}`)
       setItems(result.data)
-    }
-    fetchCharacters()
-  }, [search])
 
-  useEffect(() => {
-    const fetchQuote = async () => {
+      const fetchQuote = async () => {
       const quoteResult = await axios(`https://www.breakingbadapi.com/api/quote/random?author=Walter+White`)
       setRandomQuote(quoteResult.data[0])
       setIsLoading(false)
     }
     fetchQuote()
-  }, [])
+  }
+    fetchCharacters()
+  }, [search])
 
+  
   const onChange = (searchQuery) => {
     setText(searchQuery)
     setSearch(searchQuery)
@@ -57,7 +56,7 @@ const FrontPage = () => {
           </div>
 
           {
-              isLoading ? (<img className='loading-bar' src={circle} alt='loading..' />) : (
+              isLoading ? (<img className='loading-bar' src={loadingCircle} alt='loading..' />) : (
                 <div className='quote-div'>
                   <h3 className='author-quote'>{randomQuote.quote}</h3>
                   <p>- {randomQuote.author}</p>

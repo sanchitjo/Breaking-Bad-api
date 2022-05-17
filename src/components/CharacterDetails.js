@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import giphycircle from '../images/giphycircle.gif'
+import vanImage from '../images/vanImage.jpg'
 
 
 const CharacterDetails = () => {
@@ -14,7 +14,6 @@ const CharacterDetails = () => {
     const fetchCharactersById = async () => {
       const res = await axios(`https://www.breakingbadapi.com/api/characters/${id}`)
       setItem(res.data[0])
-      
       setIsLoading(false)
     }
     fetchCharactersById()
@@ -22,7 +21,7 @@ const CharacterDetails = () => {
   
 
   return isLoading ? (
-    <img className='loading-gif' src={giphycircle} alt='loading gif' />
+    <img className='loading-img' src={vanImage} alt='loading' />
   ) : (
     
     <div className='Character-id'>
@@ -38,7 +37,7 @@ const CharacterDetails = () => {
         <p>Nickname: <strong>{item.nickname}</strong></p>
         <p>Occupation: <strong>{item.occupation?.join(', ')}</strong></p>
         <p>Appeared in seasons: <strong>{item.appearance?.join(', ')}</strong></p>
-        
+        <p>Birth Date: <strong>{item.birthday}</strong></p>
       </div>
     </div>
   )
