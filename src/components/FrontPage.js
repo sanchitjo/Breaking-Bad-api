@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './FrontPage.css'
 import axios from 'axios'
 import Walter from '../images/Walter.png'
 import logo from '../images/logo.svg'
@@ -18,18 +19,20 @@ const FrontPage = () => {
     const fetchCharacters = async () => {
       const result = await axios(`https://www.breakingbadapi.com/api/characters?name=${search}`)
       setItems(result.data)
+    }
+    fetchCharacters()
+  }, [search])
 
-      const fetchQuote = async () => {
+  useEffect(() => {
+    const fetchQuote = async () => {
       const quoteResult = await axios(`https://www.breakingbadapi.com/api/quote/random?author=Walter+White`)
       setRandomQuote(quoteResult.data[0])
       setIsLoading(false)
     }
     fetchQuote()
-  }
-    fetchCharacters()
-  }, [search])
+  }, [])
 
-  
+
   const onChange = (searchQuery) => {
     setText(searchQuery)
     setSearch(searchQuery)
@@ -56,13 +59,13 @@ const FrontPage = () => {
           </div>
 
           {
-              isLoading ? (<img className='loading-bar' src={loadingCircle} alt='loading..' />) : (
-                <div className='quote-div'>
-                  <h3 className='author-quote'>{randomQuote.quote}</h3>
-                  <p>- {randomQuote.author}</p>
-                </div>
-              )
-            }
+            isLoading ? (<img className='loading-bar' src={loadingCircle} alt='loading..' />) : (
+              <div className='quote-div'>
+                <h3 className='author-quote'>{randomQuote.quote}</h3>
+                <p>- {randomQuote.author}</p>
+              </div>
+            )
+          }
 
         </div>
 
@@ -74,10 +77,13 @@ const FrontPage = () => {
         {
           items.map((data) => {
             return (
+              
               <Link to={`/characters/${data.char_id}`}>
                 <img src={data.img} alt='character-images' />
-
+                
               </Link>
+              
+              
             )
           })
         }

@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.bb-logo {
+    height: 200px;
+    width: 500px;
+    margin-bottom: 50px;
+}
+
+.logo-searchbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 50px;
+}
+
+.loading-bar {
+    margin-top: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.searchbar {
+    margin-top: 5px;
+    font-size: 20px;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #0d6d38;
+}
+
+.author-quote {
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.ww-img {
+    height: 700px;
+    width: 700px;
+}
+
+.cards {
+    background-color: white;
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-auto-rows: 300px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.cards img {
+    width: 80%;
+    height: 300px;
+}
+
+.cards img:hover {
+    cursor: pointer;
+}
