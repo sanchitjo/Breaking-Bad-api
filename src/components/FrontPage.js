@@ -80,7 +80,7 @@ const FrontPage = () => {
               
               <Link to={`/characters/${data.char_id}`}>
                 <img src={data.img} alt='character-images' />
-                
+                <h3 className='char-name'>{data.name}</h3> 
               </Link>
               
               
